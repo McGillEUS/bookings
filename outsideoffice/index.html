@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+</head>
+<body>
+	<div style="overflow: hidden">
+		<iframe id="rotator" scrolling="no" src="http://booking.mcgilleus.ca/day.php#day_main" style="position:fixed; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999; pointer-events: none;">
+		</iframe>
+	</div>
+
+	<!--iframe id = "area"></iframe>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		window.onload = function() {
+			$(document.body).append('hello');
+			$("#area").load("http://booking.mcgilleus.ca #day_main > *");
+			
+		}
+	</script-->
+	<script>
+	
+	// start when the page is loaded
+	window.onload = function() {
+
+	  var urls = [
+	    "http://bookings.mcgilleus.ca/day.php#day_main",
+	    "https://calendar.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=WEEK&height=600&wkst=1&bgcolor=%23FFFFFF&src=bp43kbvp49thamonmu69olnco0%40group.calendar.google.com&color=%230D7813&src=mcgilleus.ca_ah00g98ggec4bj69hgmhs1111o%40group.calendar.google.com&color=%232952A3&ctz=America%2FToronto",
+	    "eus.html"
+	  ];
+
+	  var index = 1;
+	  var el = document.getElementById("rotator");
+
+	  setTimeout(function rotate() {
+
+	    if ( index === urls.length ) {
+	      index = 0;
+	    }
+
+	    /*fade out
+	    var step_out = 10 / 500;		// change the denominator to change fade length
+	    var opacity = 1;
+	    function out() {
+	    	if (opacity <= 0) {return;}
+	    	el.style.opacity = (opacity -= step_out);
+	    	setTimeout(out, 10);
+	    }
+	    out();*/
+
+	    el.src = urls[index];
+	    index  = index + 1;
+
+	    /*fade in
+	    var step_in = 10 / 500;			// change the denominator to change fade length
+	    var opacity_in = 0;
+	    function fade_in() {
+	    	if (opacity_in >= 1) {return;}
+	    	el.style.opacity = (opacity_in += step_in);
+	    	setTimeout(fade_in, 10);
+	    }
+	    fade_in();*/
+
+	    // continue rotating iframes
+	    setTimeout(rotate, 5000);
+
+	  }, 5000); // 5000ms = 5s
+	};
+	</script>
+</body>
+</html>
